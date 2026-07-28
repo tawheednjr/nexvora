@@ -35,7 +35,7 @@ const handleSubmit = async (e) => {
     
     // const response = await fetch("http://localhost:5000/send-email",
     // const response = await fetch("http://localhost:5000/send-email",
-    const response = await fetch("https://nexvora-backend-gamma.vercel.app/api/send-email",
+    const response = await fetch("https://nexvora-backend-gamma.vercel.app/send-email",
       {
         method: "POST",
         headers: {
