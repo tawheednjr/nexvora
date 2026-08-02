@@ -1,50 +1,103 @@
+
 import { motion } from "framer-motion";
+import heroDashboard from "../assets/hero-dashboard.png";<section className="relative overflow-hidden min-h-screen flex items-center px-6 lg:px-16">
 
-function Hero() {
-  return (
-    <section className="relative flex flex-col items-center justify-center text-center px-6 min-h-[80vh]">
+  {/* Background Glow */}
+  <div className="absolute top-20 left-20 w-72 h-72 bg-purple-600/20 blur-[120px] rounded-full"></div>
+  <div className="absolute bottom-20 right-20 w-72 h-72 bg-cyan-500/20 blur-[120px] rounded-full"></div>
 
-      <div className="absolute w-96 h-96 bg-purple-600/20 blur-3xl rounded-full"></div>
+  <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center relative z-10">
+
+    {/* LEFT */}
+    <div>
+
+      <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-purple-600/10 border border-purple-500/30 text-purple-400 text-sm mb-8">
+        🚀 Trusted Digital Partner
+      </div>
 
       <motion.h1
-  initial={{ opacity: 0, y: 50 }}
-  animate={{ opacity: 1, y: 0 }}
-  transition={{ duration: 0.8 }}
-  className="text-6xl md:text-8xl font-bold leading-tight z-10"
->
-        Building Modern
-        <span className="block text-purple-500">
-          Digital Experiences
+        initial={{opacity:0,y:40}}
+        animate={{opacity:1,y:0}}
+        transition={{duration:0.8}}
+        className="text-5xl md:text-7xl font-black leading-tight"
+      >
+        We Build
+        <br />
+
+        <span className="text-transparent bg-gradient-to-r from-purple-500 to-cyan-400 bg-clip-text">
+          Powerful Websites
         </span>
+
+        <br />
+
+        & AI Solutions
       </motion.h1>
 
       <motion.p
-  initial={{ opacity: 0, y: 30 }}
-  animate={{ opacity: 1, y: 0 }}
-  transition={{ duration: 0.8, delay: 0.3 }}
-  className="mt-8 max-w-2xl text-gray-400 text-xl z-10"
->
-        We build modern websites, scalable applications, and future-ready
-        digital solutions that help businesses grow.
+        initial={{opacity:0,y:30}}
+        animate={{opacity:1,y:0}}
+        transition={{delay:.3}}
+        className="text-gray-400 mt-8 text-lg max-w-xl"
+      >
+        Helping startups and businesses grow through modern websites,
+        AI automation, scalable software, and powerful digital experiences.
       </motion.p>
 
       <motion.div
-  initial={{ opacity: 0, y: 20 }}
-  animate={{ opacity: 1, y: 0 }}
-  transition={{ duration: 0.8, delay: 0.5 }}
-  className="mt-10 flex gap-4 z-10"
->
-        <button className="px-8 py-4 bg-purple-600 hover:bg-purple-700 rounded-xl font-semibold transition">
+        initial={{opacity:0,y:20}}
+        animate={{opacity:1,y:0}}
+        transition={{delay:.5}}
+        className="flex gap-5 mt-10"
+      >
+
+        <button className="px-8 py-4 rounded-xl bg-gradient-to-r from-purple-600 to-blue-500 font-semibold hover:scale-105 duration-300">
           Start Project
         </button>
 
-        <button className="px-8 py-4 border border-gray-700 hover:border-purple-500 rounded-xl transition">
-          View Work
+        <button className="px-8 py-4 rounded-xl border border-purple-500 hover:bg-purple-500/10 duration-300">
+          View Portfolio
         </button>
+
       </motion.div>
 
-    </section>
-  );
-}
+      <div className="flex gap-12 mt-16">
 
-export default Hero;
+        <div>
+          <h2 className="text-3xl font-bold">25+</h2>
+          <p className="text-gray-500">Projects</p>
+        </div>
+
+        <div>
+          <h2 className="text-3xl font-bold">15+</h2>
+          <p className="text-gray-500">Clients</p>
+        </div>
+
+        <div>
+          <h2 className="text-3xl font-bold">100%</h2>
+          <p className="text-gray-500">Satisfaction</p>
+        </div>
+
+      </div>
+
+    </div>
+
+    {/* RIGHT */}
+
+    <motion.div
+      initial={{opacity:0,x:80}}
+      animate={{opacity:1,x:0}}
+      transition={{duration:1}}
+      className="relative"
+    >
+
+      <img
+        src={heroDashboard}
+        alt="Nexvora Dashboard"
+        className="w-full drop-shadow-[0_20px_80px_rgba(139,92,246,.4)]"
+      />
+
+    </motion.div>
+
+  </div>
+
+</section>

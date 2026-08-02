@@ -1,5 +1,6 @@
 import { Link, NavLink } from "react-router-dom";
 import { useState } from "react";
+import logo from "../assets/logo.png";
 
 function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -8,9 +9,17 @@ function Navbar() {
     <nav className="sticky top-0 z-50 bg-black/70 backdrop-blur-md border-b border-gray-800">
       <div className="flex items-center justify-between px-8 py-6">
 
-        <h1 className="text-2xl font-bold text-white">
-          Nexvora
-        </h1>
+        <div className="flex items-center gap-3">
+  <img
+    src={logo}
+    alt="Nexvora"
+    className="w-12 h-12 object-contain"
+  />
+
+  <h1 className="text-2xl font-bold tracking-wide">
+    Nexvora
+  </h1>
+</div>
 
         {/* Desktop Menu */}
         <div className="hidden md:flex gap-6">
