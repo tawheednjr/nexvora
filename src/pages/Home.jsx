@@ -6,7 +6,9 @@ import Stats from "../components/Stats";
 import Footer from "../components/Footer";
 import Testimonials from "../components/Testimonials";
 import CTA from "../components/CTA";
-import ServicesPreview from "../components/ServicesPreview";import ProjectsPreview from "../components/ProjectsPreview";
+import ServicesPreview from "../components/ServicesPreview";
+import ProjectsPreview from "../components/ProjectsPreview";
+import WhyChoose from "../components/WhyChoose";
 
 
 function Home() {
@@ -18,6 +20,7 @@ function Home() {
       <About />
       <ServicesPreview />
       <ProjectsPreview />
+       <WhyChoose />
       <Testimonials />
       <Stats />
       <CTA />

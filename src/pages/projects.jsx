@@ -1,92 +1,231 @@
-import { useState } from "react";
-import ProjectModal from "../components/ProjectModal";
+import { motion } from "framer-motion";
+import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
+
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
+
+import dashboard from "../assets/projects/dashboard.webp";
+import ecommerce from "../assets/projects/ecommerce.webp";
+import restaurant from "../assets/projects/restaurant.webp";
+import realestate from "../assets/projects/realestate.webp";
+import portfolio from "../assets/projects/portfolio.webp";
+import business from "../assets/projects/business.webp";
+
+const projects = [
+  {
+    title: "AI Analytics Dashboard",
+    category: "SaaS",
+    image: dashboard,
+    description:
+      "Modern AI-powered analytics dashboard with real-time insights and business intelligence.",
+    tech: ["React", "Node.js", "MongoDB", "Tailwind"],
+    live: "#",
+    github: "#",
+  },
+  {
+    title: "Nexvora Commerce",
+    category: "E-Commerce",
+    image: ecommerce,
+    description:
+      "A premium online shopping platform with secure checkout and modern user experience.",
+    tech: ["React", "Express", "MongoDB", "Stripe"],
+    live: "#",
+    github: "#",
+  },
+  {
+    title: "Restaurant Website",
+    category: "Restaurant",
+    image: restaurant,
+    description:
+      "Modern restaurant website featuring online reservations, digital menus and a premium dining experience.",
+    tech: ["React", "Firebase", "Tailwind"],
+    live: "#",
+    github: "#",
+  },
+  {
+    title: "Real Estate Platform",
+    category: "Property",
+    image: realestate,
+    description:
+      "Luxury property listing platform with advanced search and interactive property listings.",
+    tech: ["React", "Node.js", "MongoDB"],
+    live: "#",
+    github: "#",
+  },
+  {
+    title: "Portfolio Website",
+    category: "Portfolio",
+    image: portfolio,
+    description:
+      "Modern personal portfolio showcasing skills, projects, experience and achievements.",
+    tech: ["React", "Framer Motion", "Tailwind"],
+    live: "#",
+    github: "#",
+  },
+  {
+    title: "Business Landing Page",
+    category: "Business",
+    image: business,
+    description:
+      "High-converting business landing page designed for startups and growing companies.",
+    tech: ["React", "Vite", "Tailwind"],
+    live: "#",
+    github: "#",
+  },
+];
 
 function Projects() {
-  const [selectedProject, setSelectedProject] = useState(null);
-
-  const projects = [
-    {
-      title: "E-Commerce Platform",
-      image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d",
-      description:
-        "Modern online shopping platform with secure payments and responsive design.",
-      tech: "React • Node.js • MongoDB",
-      timeline: "3 Months",
-      client: "Retail Startup",
-    },
-    {
-      title: "AI Dashboard",
-      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71",
-      description:
-        "Analytics dashboard powered by AI for business intelligence.",
-      tech: "React • AI • Firebase",
-      timeline: "2 Months",
-      client: "Tech Company",
-    },
-    {
-      title: "Startup Landing Page",
-      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f",
-      description:
-        "High-converting landing page designed for startup growth.",
-      tech: "React • Tailwind CSS",
-      timeline: "1 Month",
-      client: "SaaS Startup",
-    },
-  ];
-
   return (
-    <div className="min-h-screen bg-black text-white px-8 py-20">
-      <h1 className="text-5xl font-bold text-center mb-16">
-        Our Projects
-      </h1>
+    <div className="min-h-screen bg-black text-white">
+      <Navbar />
 
-      <ProjectModal
-      project={selectedProject}
-      onClose={() => setSelectedProject(null)}
-      />
+      <main>
+        <section className="relative overflow-hidden bg-gradient-to-b from-black via-[#090312] to-black px-6 py-32 md:px-8">
 
-      <div className="grid md:grid-cols-3 gap-8">
-        {projects.map((project, index) => (
-          <div
-            key={index}
-            className="overflow-hidden border border-gray-800 rounded-2xl hover:border-purple-500 hover:-translate-y-2 transition-all duration-300"
-          >
-            <div className="relative">
-  <img
-    src={project.image}
-    alt={project.title}
-    className="w-full h-56 object-cover"
-  />
+          {/* Background Glow */}
+          <div className="pointer-events-none absolute left-10 top-20 h-80 w-80 rounded-full bg-purple-600/20 blur-[150px]" />
 
-  <div className="absolute inset-0 bg-black/40 opacity-0 hover:opacity-100 transition duration-300 flex items-center justify-center">
-    <button className="px-5 py-3 bg-purple-600 rounded-xl">
-      View Details
-    </button>
-  </div>
-</div>
+          <div className="pointer-events-none absolute bottom-20 right-10 h-80 w-80 rounded-full bg-blue-500/20 blur-[150px]" />
 
-            <div className="p-6">
-              <h2 className="text-2xl font-bold mb-3">
-                {project.title}
-              </h2>
+          <div className="relative z-10 mx-auto max-w-7xl">
 
-              <p className="text-gray-400 mb-4">
-                {project.description}
-              </p>
+            {/* Portfolio Badge */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className="mb-6 flex justify-center"
+            >
+              <div className="rounded-full border border-purple-500/30 bg-purple-600/10 px-5 py-2 text-sm text-purple-400">
+                💼 Our Portfolio
+              </div>
+            </motion.div>
 
-              <p className="text-purple-400 mb-6">
-                {project.tech}
-              </p>
+            {/* Heading */}
+            <motion.h1
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7 }}
+              className="text-center text-5xl font-bold md:text-6xl"
+            >
+              Featured{" "}
+              <span className="text-purple-500">
+                Projects
+              </span>
+            </motion.h1>
 
-              <button onClick={() => setSelectedProject(project)}
-              className="px-5 py-3 bg-purple-600 hover:bg-purple-700 rounded-xl transition"
-              >
-              View Project
-</button>
+            {/* Description */}
+            <motion.p
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="mx-auto mt-6 mb-20 max-w-3xl text-center text-lg leading-8 text-gray-400"
+            >
+              Explore some of our recent work built with modern
+              technologies, exceptional user experiences and scalable
+              architecture.
+            </motion.p>
+
+            {/* Projects Grid */}
+            <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+
+              {projects.map((project, index) => (
+                <motion.article
+                  key={project.title}
+                  initial={{ opacity: 0, y: 60 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{
+                    duration: 0.6,
+                    delay: index * 0.12,
+                  }}
+                  whileHover={{ y: -10 }}
+                  className="group overflow-hidden rounded-3xl border border-purple-500/20 bg-[#111111] transition-all duration-500 hover:border-purple-500 hover:shadow-[0_20px_80px_rgba(139,92,246,0.35)]"
+                >
+
+                  {/* Project Image */}
+                  <div className="relative h-60 overflow-hidden bg-black">
+
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    />
+
+                    {/* Category */}
+                    <div className="absolute left-5 top-5 rounded-full bg-purple-600 px-3 py-1 text-xs font-medium text-white">
+                      {project.category}
+                    </div>
+
+                  </div>
+
+                  {/* Project Content */}
+                  <div className="p-7">
+
+                    <h2 className="mb-3 text-2xl font-bold text-white">
+                      {project.title}
+                    </h2>
+
+                    <p className="mb-6 leading-7 text-gray-400">
+                      {project.description}
+                    </p>
+
+                    {/* Technologies */}
+                    <div className="mb-8 flex flex-wrap gap-2">
+                      {project.tech.map((tech) => (
+                        <span
+                          key={tech}
+                          className="rounded-full bg-purple-500/10 px-3 py-1 text-sm text-purple-300"
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+
+                    {/* Buttons */}
+                    <div className="flex gap-4">
+
+                      <a
+                        href={project.live}
+                        onClick={(e) => {
+                          if (project.live === "#") {
+                            e.preventDefault();
+                          }
+                        }}
+                        className="flex flex-1 items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-purple-600 to-blue-500 py-3 font-semibold text-white transition-transform duration-300 hover:scale-105"
+                      >
+                        <FaExternalLinkAlt size={14} />
+                        Live Demo
+                      </a>
+
+                      <a
+                        href={project.github}
+                        onClick={(e) => {
+                          if (project.github === "#") {
+                            e.preventDefault();
+                          }
+                        }}
+                        className="flex flex-1 items-center justify-center gap-2 rounded-xl border border-purple-500 py-3 font-semibold text-white transition-all duration-300 hover:border-purple-400 hover:bg-purple-500/10"
+                      >
+                        <FaGithub size={17} />
+                        GitHub
+                      </a>
+
+                    </div>
+
+                  </div>
+                </motion.article>
+              ))}
+
             </div>
           </div>
-        ))}
-      </div>
+        </section>
+      </main>
+
+      <Footer />
     </div>
   );
 }

@@ -1,8 +1,12 @@
 
 import { motion } from "framer-motion";
-import heroDashboard from "../assets/hero-dashboard.png";<section className="relative overflow-hidden min-h-screen flex items-center px-6 lg:px-16">
+import heroDashboard from "../assets/hero-dashboard.webp";
 
-  {/* Background Glow */}
+  function Hero() {
+    return (
+      <>
+      <section className="relative overflow-hidden min-h-screen flex items-center px-6 lg:px-16">
+      {/* Background Glow */}
   <div className="absolute top-20 left-20 w-72 h-72 bg-purple-600/20 blur-[120px] rounded-full"></div>
   <div className="absolute bottom-20 right-20 w-72 h-72 bg-cyan-500/20 blur-[120px] rounded-full"></div>
 
@@ -101,3 +105,8 @@ import heroDashboard from "../assets/hero-dashboard.png";<section className="rel
   </div>
 
 </section>
+      </>
+    );
+    
+  }
+  export default Hero;
